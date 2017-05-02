@@ -1,6 +1,7 @@
 package com.seapeng.testspringboot.model;
 
 public class TUser {
+
     private Integer id;
 
     private String username;
@@ -29,5 +30,14 @@ public class TUser {
 
     public void setPassword(String password) {
         this.password = password == null ? null : password.trim();
+    }
+
+    @Override
+    public String toString() {
+        return "TUser{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 }

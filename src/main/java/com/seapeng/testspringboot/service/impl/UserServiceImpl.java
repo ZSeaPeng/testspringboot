@@ -5,6 +5,7 @@ import com.seapeng.testspringboot.model.TUser;
 import com.seapeng.testspringboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Created by zseapeng on 13/4/17.
@@ -17,5 +18,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public TUser getUserName(int id) {
         return tUserMapper.selectByPrimaryKey(id);
+    }
+
+    @Transactional
+    public int updata(TUser user){
+        return tUserMapper.updateByPrimaryKey(user);
     }
 }
