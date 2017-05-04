@@ -11,7 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 //@EnableAutoConfiguration
 //@ComponentScan
     /*
-    @SpringBootApplication 等价于一下三个注解
+    @SpringBootApplication 等价于以下三个注解
         @Configuration
         @EnableAutoConfiguration
         @ComponentScan

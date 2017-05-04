@@ -28,7 +28,7 @@ public class Example {
 
     @ApiOperation(value = "通过ID获取用户信息", notes = "通过ID获取用户信息", httpMethod = "GET")
     @RequestMapping(value = "/userid/{id}", method = RequestMethod.GET)
-    public Result<TUser> getUserInfo(@PathVariable int id) {
+    public Result<TUser> getUserInfo(@PathVariable int id) throws Exception{
 
 
         return ResultUtils.SUCCESS(userService.getUserName(id));
@@ -36,5 +36,8 @@ public class Example {
     /*
      *@RequestParm(value="",required=false,defaultValue="")  required:是否必须有参数, defaultValue:默认值
      */
-
+    @GetMapping(value = "/getage/{id}")
+    public void getAge(@PathVariable("id") int id) throws Exception {
+        userService.getAge(id);
+    }
 }

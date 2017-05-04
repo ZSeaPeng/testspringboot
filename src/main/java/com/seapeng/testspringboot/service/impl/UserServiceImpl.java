@@ -1,6 +1,7 @@
 package com.seapeng.testspringboot.service.impl;
 
 import com.seapeng.testspringboot.dao.TUserMapper;
+import com.seapeng.testspringboot.exception.UserException;
 import com.seapeng.testspringboot.model.TUser;
 import com.seapeng.testspringboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,11 +18,24 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public TUser getUserName(int id) {
-        return tUserMapper.selectByPrimaryKey(id);
+        TUser user = tUserMapper.selectByPrimaryKey(id);
+        return user;
+    }
+
+    @Override
+    public void getAge(int id) throws Exception{
+        TUser user = tUserMapper.selectByPrimaryKey(id);
+        int age = user.getAge();
+        System.out.println("age==>"+age);
+        if (age<10){
+            throw new UserException(100,"年龄为 "+age+ " 太小");
+        }else if (age>15){
+            throw new UserException(101,"----");
+        }
     }
 
     @Transactional
-    public int updata(TUser user){
+    public int updata(TUser user) {
         return tUserMapper.updateByPrimaryKey(user);
     }
 }

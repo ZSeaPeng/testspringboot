@@ -7,4 +7,5 @@ import com.seapeng.testspringboot.model.TUser;
  */
 public interface UserService {
     TUser getUserName(int id);
+    void getAge(int id) throws Exception;
 }

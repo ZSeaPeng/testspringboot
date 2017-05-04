@@ -8,6 +8,8 @@ public class TUser {
 
     private String password;
 
+    private int age;
+
     public Integer getId() {
         return id;
     }
@@ -30,6 +32,14 @@ public class TUser {
 
     public void setPassword(String password) {
         this.password = password == null ? null : password.trim();
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 
     @Override
